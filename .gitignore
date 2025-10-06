@@ -1,0 +1,14 @@
+# Ignore virtual env
+venv/
+
+# Ignore all data files
+*.csv
+*.zip
+*.docx
+
+
+# Ignore all png files
+*.png
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints

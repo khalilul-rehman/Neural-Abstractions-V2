@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="jet_100000_State_CustomAbstraction">
+    <param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="u1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+  <location id="loc0" name="state_1" x="0" y="0" width="160" height="64">
+    <invariant>-1.09997189045 &lt;= x0 &amp; x0 &lt;= 0.0803604125977 &amp; -1.09996569157 &lt;= x1 &amp; x1 &lt;= 1.0999802351 &amp; -0.132851472242 &lt;= u0 &amp; u0 &lt;= 0.132851472242 &amp; -0.132851472242 &lt;= u1 &amp; u1 &lt;= 0.132851472242 &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.965416309198*x0 + -1.00000049055*x1 + -0.0546762858151 + u0 &amp; x1'==3.00009070333*x0 + -0.999998432127*x1 + 1.03348230383e-06 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc1" name="state_2" x="220" y="0" width="160" height="64">
+    <invariant>0.0803805589676 &lt;= x0 &amp; x0 &lt;= 1.09999358654 &amp; -1.09999930859 &lt;= x1 &amp; x1 &lt;= 1.09989929199 &amp; -0.310850303458 &lt;= u0 &amp; u0 &lt;= 0.310850303458 &amp; -0.310850303458 &lt;= u1 &amp; u1 &lt;= 0.310850303458 &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-2.42299388718*x0 + -0.999999390332*x1 + 0.395661251712 + u0 &amp; x1'==3.00000034054*x0 + -1.00000228376*x1 + 5.49421043606e-08 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc2" name="End" x="0" y="150" width="160" height="64">
+    <invariant>t &gt;= 1.5</invariant>
+    <flow>x0'==0 &amp; x1'==0 &amp; t'==0</flow>
+  </location>
+  <location id="loc3" name="Init" x="0" y="300" width="160" height="64">
+    <flow>x0'==0 &amp; x1'==0 &amp; t'==1</flow>
+  </location>
+  <transition source="loc0" target="loc2">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc0">
+    <guard>-1.09997189045 &lt;= x0 &amp; x0 &lt;= 0.0803604125977 &amp; -1.09996569157 &lt;= x1 &amp; x1 &lt;= 1.0999802351 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc2">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc1">
+  </transition>
+  <initially>
+    <constr>0.45 &lt;= x0 &amp; x0 &lt;= 0.5 &amp; -0.6 &lt;= x1 &amp; x1 &lt;= -0.55</constr>
+    <loc>loc3</loc>
+  </initially>
+  <forbidden>
+    <constr>0.3 &lt;= x0 &amp; x0 &lt;= 0.35 &amp; 0.5 &lt;= x1 &amp; x1 &lt;= 0.6</constr>
+  </forbidden>
+  </component>
+</sspaceex>
