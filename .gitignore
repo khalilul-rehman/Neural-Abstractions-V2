@@ -13,4 +13,4 @@ venv/
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints
 
-./SpaceEx/spaceex_exe/
+SpaceEx/spaceex_exe/
