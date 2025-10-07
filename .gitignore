@@ -14,3 +14,33 @@ venv/
 .ipynb_checkpoints
 
 SpaceEx/spaceex_exe/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+
+# Ignore pkl files
+*.pkl
+*.pickle
+
+# Ignore log files
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore png files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.svg
+*.ico
+

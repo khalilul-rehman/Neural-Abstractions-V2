@@ -43,48 +43,108 @@ def cvxpy_minimax(X_leaf, y_leaf):
     problem.solve(solver=cp.SCS)  # or ECOS, OSQP, GUROBI if licensed
 
     return M.value, m0.value, h.value
-
+'''
+# previouse Working version
 def gurobi_minimax(X_leaf, y_leaf):
     """
     Multi-output minimax regression using Gurobi.
     Returns M (m x d), m0 (m,), h (float)
     """
+    try:
+        n, d = X_leaf.shape
+        if y_leaf.ndim == 1:
+            y_leaf = y_leaf.reshape(-1, 1)
+        m = y_leaf.shape[1]
+
+        model = gp.Model("minimax_regression")
+        model.setParam("OutputFlag", 0)  # silent
+
+        # Decision variables
+        M = model.addVars(m, d, lb=-GRB.INFINITY, name="M")
+        m0 = model.addVars(m, lb=-GRB.INFINITY, name="m0")
+        h = model.addVar(lb=0, name="h")
+
+        # Constraints: for each sample, squared norm <= h
+        for i in range(n):
+            diff_sq_terms = []
+            for k in range(m):
+                expr = m0[k]
+                for j in range(d):
+                    expr += M[k, j] * X_leaf[i, j]
+                diff_sq_terms.append((expr - y_leaf[i, k]) * (expr - y_leaf[i, k]))
+            model.addConstr(gp.quicksum(diff_sq_terms) <= h)
+
+        model.setObjective(h, GRB.MINIMIZE)
+        model.optimize()
+
+        if model.status in [GRB.OPTIMAL, GRB.SUBOPTIMAL] or model.SolCount > 0:
+            M_val = np.array([[M[k, j].X for j in range(d)] for k in range(m)])
+            m0_val = np.array([m0[k].X for k in range(m)])
+            h_val = h.X
+        else:
+            M_val, m0_val, h_val = None, None, np.inf
+
+        return M_val, m0_val, h_val
+    except gp.GurobiError as e:
+        if "Model too large for size-limited license" in str(e):
+            return cvxpy_minimax(X_leaf, y_leaf)   # your fallback path
+        raise
+'''
+# Updated Working version
+def gurobi_minimax(X_leaf, y_leaf):
+    """
+    Minimax regression (multi-output) with squared L2 error.
+    Minimize h s.t. for every sample i: sum_k (m0_k + M_k·x_i - y_{ik})^2 <= h
+    Returns: M (m x d), m0 (m,), h (float)
+    """
+    # Shapes
     n, d = X_leaf.shape
     if y_leaf.ndim == 1:
         y_leaf = y_leaf.reshape(-1, 1)
     m = y_leaf.shape[1]
 
-    model = gp.Model("minimax_regression")
-    model.setParam("OutputFlag", 0)  # silent
+    try:
+        model = gp.Model("minimax_regression")
+        model.Params.OutputFlag = 0  # silent
 
-    # Decision variables
-    M = model.addVars(m, d, lb=-GRB.INFINITY, name="M")
-    m0 = model.addVars(m, lb=-GRB.INFINITY, name="m0")
-    h = model.addVar(lb=0, name="h")
+        # Decision variables
+        M = model.addVars(m, d, lb=-GRB.INFINITY, name="M")
+        m0 = model.addVars(m, lb=-GRB.INFINITY, name="m0")
+        h  = model.addVar(lb=0.0, name="h")
 
-    # Constraints: for each sample, squared norm <= h
-    for i in range(n):
-        diff_sq_terms = []
-        for k in range(m):
-            expr = m0[k]
-            for j in range(d):
-                expr += M[k, j] * X_leaf[i, j]
-            diff_sq_terms.append((expr - y_leaf[i, k]) * (expr - y_leaf[i, k]))
-        model.addConstr(gp.quicksum(diff_sq_terms) <= h)
+        # Quadratic constraints: for each sample i, sum_k (affine)^2 <= h
+        for i in range(n):
+            quad_terms = []
+            for k in range(m):
+                # expr = m0[k] + sum_j M[k,j] * X[i,j] - y[i,k]
+                expr = m0[k]
+                for j in range(d):
+                    expr += M[k, j] * float(X_leaf[i, j])  # X is data (constant)
+                expr -= float(y_leaf[i, k])
+                quad_terms.append(expr * expr)  # (affine)^2 -> QuadExpr
 
-    model.setObjective(h, GRB.MINIMIZE)
-    model.optimize()
+            # Move h to LHS so all quadratic stays on LHS
+            model.addQConstr(gp.quicksum(quad_terms) - h <= 0.0)
 
-    if model.status in [GRB.OPTIMAL, GRB.SUBOPTIMAL] or model.SolCount > 0:
-        M_val = np.array([[M[k, j].X for j in range(d)] for k in range(m)])
-        m0_val = np.array([m0[k].X for k in range(m)])
-        h_val = h.X
-    else:
-        M_val, m0_val, h_val = None, None, np.inf
+        # Objective: minimize h
+        model.setObjective(h, GRB.MINIMIZE)
+        model.optimize()
 
-    return M_val, m0_val, h_val
+        if model.Status in (GRB.OPTIMAL, GRB.SUBOPTIMAL) or model.SolCount > 0:
+            M_val  = np.array([[M[k, j].X for j in range(d)] for k in range(m)])
+            m0_val = np.array([m0[k].X for k in range(m)])
+            h_val  = float(h.X)
+            return M_val, m0_val, h_val
+        else:
+            return None, None, np.inf
 
-
+    except gp.GurobiError as e:
+        # License-size fallback or other Gurobi errors
+        if "Model too large for size-limited license" in str(e):
+            # Define this in your codebase
+            return cvxpy_minimax(X_leaf, y_leaf)
+        raise
+    
 
 def process_leaf(
     leaf_id: int,

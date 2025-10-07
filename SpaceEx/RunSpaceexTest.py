@@ -65,7 +65,9 @@ def run_spaceex(
     abs_err="1.0E-15",
     flowpipe_tol="0.01",
     iter_max="-1",
-    folder_model_xml_path = r"/Users/khalilulrehman/Academic/Phd Italy 2023_26/University of LAquila/Research Papers tasks/Benchmarks_Systems/Robust Control for Dynamical Systems With Non-Gaussian Noise via Formal Abstractions/Neural Abstractions V2/SpaceEx/experiments/"  # Path to your SpaceEx model file
+    folder_model_xml_path = r"/Users/khalilulrehman/Academic/Phd Italy 2023_26/University of LAquila/Research Papers tasks/Benchmarks_Systems/Robust Control for Dynamical Systems With Non-Gaussian Noise via Formal Abstractions/Neural Abstractions V2/SpaceEx/experiments/",  # Path to your SpaceEx model file
+    sapceex_path = r"/Users/khalilulrehman/ExtraToolsInstalledHere/spaceex_exe_osx2/"  # Update this path to your SpaceEx installation if needed
+    
 ):
     """
     Runs SpaceEx from Python and returns:
@@ -73,7 +75,6 @@ def run_spaceex(
     2. Output file contents as a list of polygons (list of lists of [x, y])
     """
 
-    sapceex_path = r"/Users/khalilulrehman/ExtraToolsInstalledHere/spaceex_exe_osx2/"  # Update this path to your SpaceEx installation if needed
     
 
 

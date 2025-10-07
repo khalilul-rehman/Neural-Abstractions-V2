@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="nl2_100000_4_State_CustomAbstraction">
+    <param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="u1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+  <location id="loc0" name="state_6" x="0" y="0" width="160" height="64">
+    <invariant>-1.09997045994 &lt;= x0 &amp; x0 &lt;= -0.41025018692 &amp; -0.00897574424744 &lt;= x1 &amp; x1 &lt;= 1.09988868237 &amp; -0.060135437551 &lt;= u0 &amp; u0 &lt;= 0.060135437551 &amp; -0.060135437551 &lt;= u1 &amp; u1 &lt;= 0.060135437551 &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-1.51032273732*x0 + 0.99999292811*x1 + -0.510964253525 + u0 &amp; x1'==-1.74441044725*x0 + 6.91681709778e-06*x1 + 0.256959067843 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc1" name="state_4" x="220" y="0" width="160" height="64">
+    <invariant>-0.410120129585 &lt;= x0 &amp; x0 &lt;= 1.09998512268 &amp; 0.0194306373596 &lt;= x1 &amp; x1 &lt;= 1.0999891758 &amp; -0.411293087317 &lt;= u0 &amp; u0 &lt;= 0.411293087317 &amp; -0.411293087317 &lt;= u1 &amp; u1 &lt;= 0.411293087317 &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.690200134609*x0 + 0.999902782879*x1 + 0.225243222076 + u0 &amp; x1'==-0.65938715319*x0 + 0.000406915367093*x1 + 0.346231480658 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc2" name="state_5" x="440" y="0" width="160" height="64">
+    <invariant>-1.09996926785 &lt;= x0 &amp; x0 &lt;= -0.410378694534 &amp; -1.09990847111 &lt;= x1 &amp; x1 &lt;= -0.00903236865997 &amp; -0.0600213220539 &lt;= u0 &amp; u0 &lt;= 0.0600213220539 &amp; -0.0600213220539 &lt;= u1 &amp; u1 &lt;= 0.0600213220539 &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-1.51048856056*x0 + 1.00002611814*x1 + -0.511175709934 + u0 &amp; x1'==-1.74435945073*x0 + -3.09808979283e-06*x1 + 0.257018063537 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc3" name="state_3" x="660" y="0" width="160" height="64">
+    <invariant>-0.410173892975 &lt;= x0 &amp; x0 &lt;= 1.09999072552 &amp; -1.09999907017 &lt;= x1 &amp; x1 &lt;= 0.0194185972214 &amp; -0.411280286775 &lt;= u0 &amp; u0 &lt;= 0.411280286775 &amp; -0.411280286775 &lt;= u1 &amp; u1 &lt;= 0.411280286775 &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.690092496463*x0 + 1.00044953581*x1 + 0.22590587585 + u0 &amp; x1'==-0.659646093164*x0 + 0.00135629130221*x1 + 0.348515400411 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc4" name="End" x="0" y="150" width="160" height="64">
+    <invariant>t &gt;= 1.5</invariant>
+    <flow>x0'==0 &amp; x1'==0 &amp; t'==0</flow>
+  </location>
+  <location id="loc5" name="Init" x="0" y="300" width="160" height="64">
+    <flow>x0'==0 &amp; x1'==0 &amp; t'==1</flow>
+  </location>
+  <transition source="loc0" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc3">
+    <guard>-0.410173892975 &lt;= x0 &amp; x0 &lt;= 1.09999072552 &amp; -1.09999907017 &lt;= x1 &amp; x1 &lt;= 0.0194185972214 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc2" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc5" target="loc3">
+  </transition>
+  <initially>
+    <constr>-0.025 &lt;= x0 &amp; x0 &lt;= 0.025 &amp; -0.9 &lt;= x1 &amp; x1 &lt;= -0.85</constr>
+    <loc>loc5</loc>
+  </initially>
+  <forbidden>
+    <constr>-0.05 &lt;= x0 &amp; x0 &lt;= 0.05 &amp; -0.8 &lt;= x1 &amp; x1 &lt;= -0.7</constr>
+  </forbidden>
+  </component>
+</sspaceex>
