@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="tank_100000_2_State_CustomAbstraction">
+    <param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+  <location id="loc0" name="state_1" x="0" y="0" width="160" height="64">
+    <invariant>1.81198120117e-05 &lt;= x0 &amp; x0 &lt;= 3.85765361786 &amp; -0.243902072193 &lt;= u0 &amp; u0 &lt;= 0.243902072193 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-0.508074041362*x0 + 1.2518532608 + u0 &amp; t'==1</flow>
+  </location>
+  <location id="loc1" name="state_2" x="220" y="0" width="160" height="64">
+    <invariant>3.85781097412 &lt;= x0 &amp; x0 &lt;= 10.0999441147 &amp; -0.0354055927396 &lt;= u0 &amp; u0 &lt;= 0.0354055927396 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-0.194471830461*x0 + 0.24995551988 + u0 &amp; t'==1</flow>
+  </location>
+  <location id="loc2" name="End" x="0" y="150" width="160" height="64">
+    <invariant>t &gt;= 1.5</invariant>
+    <flow>x0'==0 &amp; t'==0</flow>
+  </location>
+  <location id="loc3" name="Init" x="0" y="300" width="160" height="64">
+    <flow>x0'==0 &amp; t'==1</flow>
+  </location>
+  <transition source="loc0" target="loc2">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc2">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc0">
+  </transition>
+  <initially>
+    <constr>0 &lt;= x0 &amp; x0 &lt;= 0.01</constr>
+    <loc>loc3</loc>
+  </initially>
+  <forbidden>
+    <constr>2 &lt;= x0</constr>
+  </forbidden>
+  </component>
+</sspaceex>
