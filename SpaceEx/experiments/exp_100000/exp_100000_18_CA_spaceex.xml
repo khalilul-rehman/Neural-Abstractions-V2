@@ -6,77 +6,77 @@
     <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
     <param name="u1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
     <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
-  <location id="loc0" name="state_22" x="0" y="0" width="160" height="64">
-    <invariant>0.00107705593109 &lt;= x0 &amp; x0 &lt;= 0.549600303173 &amp; 0.551740884781 &lt;= x1 &amp; x1 &lt;= 0.945082247257 &amp; -0.518481981159 &lt;= u0 &amp; u0 &lt;= 0.518481981159 &amp; -0.518481981159 &lt;= u1 &amp; u1 &lt;= 0.518481981159 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-6.13104360993e-05*x0 + -1.78446357896*x1 + 1.27241696591 + u0 &amp; x1'==-1.00000000013*x0 + -4.19169082535e-12*x1 + 7.12790277491e-11 + u1 &amp; t'==1</flow>
+  <location id="loc0" name="state_24" x="0" y="0" width="160" height="64">
+    <invariant>0.54875087738 &lt;= x0 &amp; x0 &lt;= 1.09997582436 &amp; 0.551014840603 &lt;= x1 &amp; x1 &lt;= 0.945169210434 &amp; -0.519381058552 &lt;= u0 &amp; u0 &lt;= 0.519381058552 &amp; -0.519381058552 &lt;= u1 &amp; u1 &lt;= 0.519381058552 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-3.46578285888e-05*x0 + -1.78173976693*x1 + 1.26924312511 + u0 &amp; x1'==-1.00000000035*x0 + 9.29096404003e-11*x1 + 2.45083801459e-10 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc1" name="state_21" x="220" y="0" width="160" height="64">
-    <invariant>0.000845193862915 &lt;= x0 &amp; x0 &lt;= 0.549554407597 &amp; -0.54274058342 &lt;= x1 &amp; x1 &lt;= 0.55149435997 &amp; -0.165385230336 &lt;= u0 &amp; u0 &lt;= 0.165385230336 &amp; -0.165385230336 &lt;= u1 &amp; u1 &lt;= 0.165385230336 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-3.21069150424e-06*x0 + 0.664666779971*x1 + -0.502810194111 + u0 &amp; x1'==-1.00000000001*x0 + 3.48095428327e-12*x1 + 3.86184732747e-12 + u1 &amp; t'==1</flow>
+  <location id="loc1" name="state_33" x="220" y="0" width="160" height="64">
+    <invariant>-0.547769665718 &lt;= x0 &amp; x0 &lt;= -0.000197887420654 &amp; -1.09986031055 &lt;= x1 &amp; x1 &lt;= -0.739715456963 &amp; -0.0511038672964 &lt;= u0 &amp; u0 &lt;= 0.0511038672964 &amp; -0.0511038672964 &lt;= u1 &amp; u1 &lt;= 0.0511038672964 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.000129741458364*x0 + 0.970557633633*x1 + -0.851820119142 + u0 &amp; x1'==-1.00000000004*x0 + 1.24030316625e-12*x1 + -5.71151452251e-12 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc2" name="state_20" x="440" y="0" width="160" height="64">
-    <invariant>-0.549318313599 &lt;= x0 &amp; x0 &lt;= 0.000750303268433 &amp; 0.549047350883 &lt;= x1 &amp; x1 &lt;= 0.94458425045 &amp; -0.517075186552 &lt;= u0 &amp; u0 &lt;= 0.517075186552 &amp; -0.517075186552 &lt;= u1 &amp; u1 &lt;= 0.517075186552 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==0.000116868941315*x0 + -1.73866248881*x1 + 1.23623494328 + u0 &amp; x1'==-1.00000000054*x0 + -6.59445184195e-11*x1 + -2.12331647697e-10 + u1 &amp; t'==1</flow>
+  <location id="loc2" name="state_21" x="440" y="0" width="160" height="64">
+    <invariant>-0.551164150238 &lt;= x0 &amp; x0 &lt;= -2.43186950684e-05 &amp; -0.541538000107 &lt;= x1 &amp; x1 &lt;= 0.548724234104 &amp; -0.164687546263 &lt;= u0 &amp; u0 &lt;= 0.164687546263 &amp; -0.164687546263 &lt;= u1 &amp; u1 &lt;= 0.164687546263 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==2.04017476876e-05*x0 + 0.662387452177*x1 + -0.502550916828 + u0 &amp; x1'==-0.999999999987*x0 + -1.78262614722e-12*x1 + 2.82690796639e-12 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc3" name="state_27" x="660" y="0" width="160" height="64">
-    <invariant>-1.09985673428 &lt;= x0 &amp; x0 &lt;= 0.000692844390869 &amp; 0.944813549519 &lt;= x1 &amp; x1 &lt;= 1.07221436501 &amp; -0.461476979257 &lt;= u0 &amp; u0 &lt;= 0.461476979257 &amp; -0.461476979257 &lt;= u1 &amp; u1 &lt;= 0.461476979257 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==0.000169267012816*x0 + -2.52839371279*x1 + 0.999936964301 + u0 &amp; x1'==-1.00000000015*x0 + 5.01744146876e-10*x1 + -5.48429525014e-10 + u1 &amp; t'==1</flow>
+  <location id="loc3" name="state_26" x="660" y="0" width="160" height="64">
+    <invariant>-1.09960448742 &lt;= x0 &amp; x0 &lt;= -0.551446557045 &amp; 0.550468802452 &lt;= x1 &amp; x1 &lt;= 0.944813549519 &amp; -0.517644448775 &lt;= u0 &amp; u0 &lt;= 0.517644448775 &amp; -0.517644448775 &lt;= u1 &amp; u1 &lt;= 0.517644448775 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==1.15111577609e-06*x0 + -1.7610999196*x1 + 1.25404735568 + u0 &amp; x1'==-1.00000000027*x0 + 2.29534268952e-10*x1 + -3.86032205074e-10 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc4" name="state_25" x="880" y="0" width="160" height="64">
-    <invariant>-1.09998333454 &lt;= x0 &amp; x0 &lt;= -0.549338102341 &amp; -0.541299700737 &lt;= x1 &amp; x1 &lt;= 0.550864160061 &amp; -0.164622527501 &lt;= u0 &amp; u0 &lt;= 0.164622527501 &amp; -0.164622527501 &lt;= u1 &amp; u1 &lt;= 0.164622527501 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-1.48698928071e-06*x0 + 0.662180704868*x1 + -0.502534301552 + u0 &amp; x1'==-1.00000000012*x0 + -1.25400794919e-12*x1 + -9.95038475169e-11 + u1 &amp; t'==1</flow>
+  <location id="loc4" name="state_30" x="880" y="0" width="160" height="64">
+    <invariant>-1.09543955326 &lt;= x0 &amp; x0 &lt;= -0.0019748210907 &amp; 1.07234036922 &lt;= x1 &amp; x1 &lt;= 1.09996533394 &amp; -0.0144010515146 &lt;= u0 &amp; u0 &lt;= 0.0144010515146 &amp; -0.0144010515146 &lt;= u1 &amp; u1 &lt;= 0.0144010515146 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-1.40874050377e-05*x0 + 28.7834251327*x1 + -32.0970540582 + u0 &amp; x1'==-1.0000379576*x0 + -0.00972372618437*x1 + 0.0105624333901 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc5" name="state_19" x="1100" y="0" width="160" height="64">
-    <invariant>-0.549285888672 &lt;= x0 &amp; x0 &lt;= 0.000811457633972 &amp; -0.541698932648 &lt;= x1 &amp; x1 &lt;= 0.548937320709 &amp; -0.164773087148 &lt;= u0 &amp; u0 &lt;= 0.164773087148 &amp; -0.164773087148 &lt;= u1 &amp; u1 &lt;= 0.164773087148 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-4.31396026114e-05*x0 + 0.662655221919*x1 + -0.502598495199 + u0 &amp; x1'==-1.00000000009*x0 + -3.34792220545e-11*x1 + -3.26670901894e-11 + u1 &amp; t'==1</flow>
+  <location id="loc5" name="state_15" x="1100" y="0" width="160" height="64">
+    <invariant>0.000143051147461 &lt;= x0 &amp; x0 &lt;= 0.550872921944 &amp; -1.09995853901 &lt;= x1 &amp; x1 &lt;= -0.542362332344 &amp; -0.113262578977 &lt;= u0 &amp; u0 &lt;= 0.113262578977 &amp; -0.113262578977 &lt;= u1 &amp; u1 &lt;= 0.113262578977 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-5.47726664606e-05*x0 + 1.50638641445*x1 + -0.324711157699 + u0 &amp; x1'==-1.00000000006*x0 + 1.62637971132e-11*x1 + 2.90551049452e-11 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc6" name="state_23" x="1320" y="0" width="160" height="64">
-    <invariant>0.549624085426 &lt;= x0 &amp; x0 &lt;= 1.09997594357 &amp; -0.542577624321 &lt;= x1 &amp; x1 &lt;= 0.551632702351 &amp; -0.165290690691 &lt;= u0 &amp; u0 &lt;= 0.165290690691 &amp; -0.165290690691 &lt;= u1 &amp; u1 &lt;= 0.165290690691 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-1.31368613941e-05*x0 + 0.664366090502*x1 + -0.50276998593 + u0 &amp; x1'==-0.999999999768*x0 + 2.06614136921e-11*x1 + -1.97041963572e-10 + u1 &amp; t'==1</flow>
+  <location id="loc6" name="state_25" x="1320" y="0" width="160" height="64">
+    <invariant>-1.09998333454 &lt;= x0 &amp; x0 &lt;= -0.5512830019 &amp; -0.541542887688 &lt;= x1 &amp; x1 &lt;= 0.550256371498 &amp; -0.164754048564 &lt;= u0 &amp; u0 &lt;= 0.164754048564 &amp; -0.164754048564 &lt;= u1 &amp; u1 &lt;= 0.164754048564 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==3.03240930398e-05*x0 + 0.662606513974*x1 + -0.502559859724 + u0 &amp; x1'==-0.999999999386*x0 + 1.61625021126e-11*x1 + 5.31543530582e-10 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc7" name="state_24" x="1540" y="0" width="160" height="64">
-    <invariant>0.549684643745 &lt;= x0 &amp; x0 &lt;= 1.09997582436 &amp; 0.551702082157 &lt;= x1 &amp; x1 &lt;= 0.945169210434 &amp; -0.519000717046 &lt;= u0 &amp; u0 &lt;= 0.519000717046 &amp; -0.519000717046 &lt;= u1 &amp; u1 &lt;= 0.519000717046 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-6.74874583728e-05*x0 + -1.78813789746*x1 + 1.2749395653 + u0 &amp; x1'==-1.00000000064*x0 + -3.99814792956e-11*x1 + 6.32524208931e-10 + u1 &amp; t'==1</flow>
+  <location id="loc7" name="state_19" x="1540" y="0" width="160" height="64">
+    <invariant>0.000182032585144 &lt;= x0 &amp; x0 &lt;= 0.548566639423 &amp; -0.542333960533 &lt;= x1 &amp; x1 &lt;= 0.552720189095 &amp; -0.16513227569 &lt;= u0 &amp; u0 &lt;= 0.16513227569 &amp; -0.16513227569 &lt;= u1 &amp; u1 &lt;= 0.16513227569 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-4.44136292312e-05*x0 + 0.663844344055*x1 + -0.502710049771 + u0 &amp; x1'==-1.00000000002*x0 + -5.549423541e-12*x1 + 6.01388694584e-12 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc8" name="state_29" x="1760" y="0" width="160" height="64">
-    <invariant>0.000866651535034 &lt;= x0 &amp; x0 &lt;= 1.09932589531 &amp; 0.945250213146 &lt;= x1 &amp; x1 &lt;= 1.07199180126 &amp; -0.457923586156 &lt;= u0 &amp; u0 &lt;= 0.457923586156 &amp; -0.457923586156 &lt;= u1 &amp; u1 &lt;= 0.457923586156 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-1.68635715477e-05*x0 + -2.52829995411*x1 + 0.996187402702 + u0 &amp; x1'==-1.00000000005*x0 + 2.9729962074e-10*x1 + -2.85221949226e-10 + u1 &amp; t'==1</flow>
+  <location id="loc8" name="state_23" x="1760" y="0" width="160" height="64">
+    <invariant>0.548634707928 &lt;= x0 &amp; x0 &lt;= 1.09997594357 &amp; -0.542268872261 &lt;= x1 &amp; x1 &lt;= 0.550958156586 &amp; -0.165155593855 &lt;= u0 &amp; u0 &lt;= 0.165155593855 &amp; -0.165155593855 &lt;= u1 &amp; u1 &lt;= 0.165155593855 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-7.74244865039e-06*x0 + 0.663906298001*x1 + -0.502720063806 + u0 &amp; x1'==-1.00000000003*x0 + 1.56364041417e-11*x1 + 3.95563937222e-11 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc9" name="state_16" x="1980" y="0" width="160" height="64">
-    <invariant>-0.546934008598 &lt;= x0 &amp; x0 &lt;= 0.000675439834595 &amp; -1.09986031055 &lt;= x1 &amp; x1 &lt;= -0.541767477989 &amp; -0.113436774588 &lt;= u0 &amp; u0 &lt;= 0.113436774588 &amp; -0.113436774588 &lt;= u1 &amp; u1 &lt;= 0.113436774588 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-3.35313511285e-05*x0 + 1.5072264603*x1 + -0.323872437317 + u0 &amp; x1'==-0.999999999992*x0 + 7.75645168982e-12*x1 + 9.54326103671e-12 + u1 &amp; t'==1</flow>
+  <location id="loc9" name="state_27" x="1980" y="0" width="160" height="64">
+    <invariant>9.2625617981e-05 &lt;= x0 &amp; x0 &lt;= 1.09932589531 &amp; 0.945393681526 &lt;= x1 &amp; x1 &lt;= 1.07248449326 &amp; -0.46196964278 &lt;= u0 &amp; u0 &lt;= 0.46196964278 &amp; -0.46196964278 &lt;= u1 &amp; u1 &lt;= 0.46196964278 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-0.0052155457222*x0 + -2.38601944216*x1 + 0.855625617875 + u0 &amp; x1'==-1.00000000155*x0 + -4.94611359802e-10*x1 + 5.83916640539e-10 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc10" name="state_17" x="0" y="150" width="160" height="64">
-    <invariant>0.000992178916931 &lt;= x0 &amp; x0 &lt;= 0.552727401257 &amp; -1.09995853901 &lt;= x1 &amp; x1 &lt;= -0.542989730835 &amp; -0.113137760912 &lt;= u0 &amp; u0 &lt;= 0.113137760912 &amp; -0.113137760912 &lt;= u1 &amp; u1 &lt;= 0.113137760912 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-4.28118131492e-05*x0 + 1.50513631394*x1 + -0.325892730006 + u0 &amp; x1'==-1.00000000005*x0 + 5.47697008423e-12*x1 + 1.49346617229e-11 + u1 &amp; t'==1</flow>
+  <location id="loc10" name="state_28" x="0" y="150" width="160" height="64">
+    <invariant>0.000561356544495 &lt;= x0 &amp; x0 &lt;= 1.09884214401 &amp; 1.0725915432 &lt;= x1 &amp; x1 &lt;= 1.09995567799 &amp; -0.0143303120383 &lt;= u0 &amp; u0 &lt;= 0.0143303120383 &amp; -0.0143303120383 &lt;= u1 &amp; u1 &lt;= 0.0143303120383 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-1.2324259824e-05*x0 + 28.7751852155*x1 + -32.0879872603 + u0 &amp; x1'==-0.999794287995*x0 + 0.00169340668594*x1 + -0.00197967278902 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc11" name="state_26" x="220" y="150" width="160" height="64">
-    <invariant>-1.09970414639 &lt;= x0 &amp; x0 &lt;= -0.549421310425 &amp; 0.550885260105 &lt;= x1 &amp; x1 &lt;= 0.944622278214 &amp; -0.516294971932 &lt;= u0 &amp; u0 &lt;= 0.516294971932 &amp; -0.516294971932 &lt;= u1 &amp; u1 &lt;= 0.516294971932 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-1.11139811126e-05*x0 + -1.75666709764*x1 + 1.25174766315 + u0 &amp; x1'==-1.00000000044*x0 + -4.55444519485e-10*x1 + 4.3176858631e-11 + u1 &amp; t'==1</flow>
+  <location id="loc11" name="state_20" x="220" y="150" width="160" height="64">
+    <invariant>0.000105857849121 &lt;= x0 &amp; x0 &lt;= 0.548578321934 &amp; 0.553145170212 &lt;= x1 &amp; x1 &lt;= 0.945335745811 &amp; -0.519146951717 &lt;= u0 &amp; u0 &lt;= 0.519146951717 &amp; -0.519146951717 &lt;= u1 &amp; u1 &lt;= 0.519146951717 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.000146067162534*x0 + -1.80854305613*x1 + 1.29145905092 + u0 &amp; x1'==-1.00000000105*x0 + 7.1948374013e-10*x1 + -3.9514798047e-10 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc12" name="state_33" x="440" y="150" width="160" height="64">
-    <invariant>-1.0999430418 &lt;= x0 &amp; x0 &lt;= -0.547654747963 &amp; -1.09998548031 &lt;= x1 &amp; x1 &lt;= -0.738223910332 &amp; -0.0515578687537 &lt;= u0 &amp; u0 &lt;= 0.0515578687537 &amp; -0.0515578687537 &lt;= u1 &amp; u1 &lt;= 0.0515578687537 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==4.01182162425e-05*x0 + 0.975771566436*x1 + -0.846637473934 + u0 &amp; x1'==-1.00000000023*x0 + -5.27286831855e-11*x1 + -2.30997532243e-10 + u1 &amp; t'==1</flow>
+  <location id="loc12" name="state_32" x="440" y="150" width="160" height="64">
+    <invariant>0.551035702229 &lt;= x0 &amp; x0 &lt;= 1.09992790222 &amp; -0.739952087402 &lt;= x1 &amp; x1 &lt;= -0.542475104332 &amp; -0.00282645688391 &lt;= u0 &amp; u0 &lt;= 0.00282645688391 &amp; -0.00282645688391 &lt;= u1 &amp; u1 &lt;= 0.00282645688391 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-0.000255746654291*x0 + 2.48396083013*x1 + 0.315385966997 + u0 &amp; x1'==-1.00000000349*x0 + 6.60027302793e-09*x1 + 7.63546765827e-09 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc13" name="state_34" x="660" y="150" width="160" height="64">
-    <invariant>-1.09998357296 &lt;= x0 &amp; x0 &lt;= -0.547137141228 &amp; -0.737472295761 &lt;= x1 &amp; x1 &lt;= -0.541720271111 &amp; -0.00222896601438 &lt;= u0 &amp; u0 &lt;= 0.00222896601438 &amp; -0.00222896601438 &lt;= u1 &amp; u1 &lt;= 0.00222896601438 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-0.000106315877609*x0 + 2.50691812295*x1 + 0.329588228818 + u0 &amp; x1'==-0.999999974795*x0 + 4.57412294795e-09*x1 + 2.39223466731e-08 + u1 &amp; t'==1</flow>
+  <location id="loc13" name="state_31" x="660" y="150" width="160" height="64">
+    <invariant>0.551819324493 &lt;= x0 &amp; x0 &lt;= 1.09981429577 &amp; -1.09993112087 &lt;= x1 &amp; x1 &lt;= -0.740200281143 &amp; -0.0509530751145 &lt;= u0 &amp; u0 &lt;= 0.0509530751145 &amp; -0.0509530751145 &lt;= u1 &amp; u1 &lt;= 0.0509530751145 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==2.49054264636e-05*x0 + 0.969288300504*x1 + -0.853193525522 + u0 &amp; x1'==-1.00000000011*x0 + -1.27360504525e-10*x1 + -2.59300857709e-11 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc14" name="state_31" x="880" y="150" width="160" height="64">
-    <invariant>0.552817344666 &lt;= x0 &amp; x0 &lt;= 1.09981429577 &amp; -1.09993112087 &lt;= x1 &amp; x1 &lt;= -0.740442156792 &amp; -0.0507693630304 &lt;= u0 &amp; u0 &lt;= 0.0507693630304 &amp; -0.0507693630304 &lt;= u1 &amp; u1 &lt;= 0.0507693630304 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==9.27793127122e-05*x0 + 0.969419152473*x1 + -0.853266280191 + u0 &amp; x1'==-1.00000000024*x0 + 2.01982730285e-11*x1 + 2.17705888255e-10 + u1 &amp; t'==1</flow>
+  <location id="loc14" name="state_22" x="880" y="150" width="160" height="64">
+    <invariant>-0.551215410233 &lt;= x0 &amp; x0 &lt;= 5.13792037964e-05 &amp; 0.548740386963 &lt;= x1 &amp; x1 &lt;= 0.94481420517 &amp; -0.518605862924 &lt;= u0 &amp; u0 &lt;= 0.518605862924 &amp; -0.518605862924 &lt;= u1 &amp; u1 &lt;= 0.518605862924 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.000107597297573*x0 + -1.74576559779*x1 + 1.24052575388 + u0 &amp; x1'==-1.00000000002*x0 + -1.0949402091e-11*x1 + 4.32270036743e-12 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc15" name="state_32" x="1100" y="150" width="160" height="64">
-    <invariant>0.552801370621 &lt;= x0 &amp; x0 &lt;= 1.09992790222 &amp; -0.740200281143 &lt;= x1 &amp; x1 &lt;= -0.542847752571 &amp; -0.00281296434714 &lt;= u0 &amp; u0 &lt;= 0.00281296434714 &amp; -0.00281296434714 &lt;= u1 &amp; u1 &lt;= 0.00281296434714 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-0.000456041688606*x0 + 2.48450398082*x1 + 0.31590954455 + u0 &amp; x1'==-1.00000000432*x0 + 8.12823283253e-09*x1 + 9.39668155258e-09 + u1 &amp; t'==1</flow>
+  <location id="loc15" name="state_29" x="1100" y="150" width="160" height="64">
+    <invariant>-1.09985673428 &lt;= x0 &amp; x0 &lt;= -0.000570893287659 &amp; 0.944862604141 &lt;= x1 &amp; x1 &lt;= 1.07231497765 &amp; -0.462290843071 &lt;= u0 &amp; u0 &lt;= 0.462290843071 &amp; -0.462290843071 &lt;= u1 &amp; u1 &lt;= 0.462290843071 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-6.90136211038e-05*x0 + -2.49606730718*x1 + 0.967682423976 + u0 &amp; x1'==-1.00000000006*x0 + 6.25049629075e-11*x1 + -9.80736904785e-11 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc16" name="state_28" x="1320" y="150" width="160" height="64">
-    <invariant>-1.09622824192 &lt;= x0 &amp; x0 &lt;= 0.000561356544495 &amp; 1.07222354412 &lt;= x1 &amp; x1 &lt;= 1.09996533394 &amp; -0.0144271602242 &lt;= u0 &amp; u0 &lt;= 0.0144271602242 &amp; -0.0144271602242 &lt;= u1 &amp; u1 &lt;= 0.0144271602242 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-4.5093065898e-05*x0 + 28.7886960793*x1 + -32.1028264154 + u0 &amp; x1'==-1.00068445457*x0 + 0.0106484039054*x1 + -0.0117077565515 + u1 &amp; t'==1</flow>
+  <location id="loc16" name="state_17" x="1320" y="150" width="160" height="64">
+    <invariant>-1.09998357296 &lt;= x0 &amp; x0 &lt;= -0.548321247101 &amp; -1.09998548031 &lt;= x1 &amp; x1 &lt;= -0.541720271111 &amp; -0.113446789232 &lt;= u0 &amp; u0 &lt;= 0.113446789232 &amp; -0.113446789232 &lt;= u1 &amp; u1 &lt;= 0.113446789232 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.000137914883091*x0 + 1.50737138643*x1 + -0.323612001334 + u0 &amp; x1'==-1.00000000024*x0 + -1.37519486691e-11*x1 + -1.90370112992e-10 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc17" name="state_30" x="1540" y="150" width="160" height="64">
-    <invariant>0.00221121311188 &lt;= x0 &amp; x0 &lt;= 1.09884214401 &amp; 1.0724093914 &lt;= x1 &amp; x1 &lt;= 1.09995567799 &amp; -0.014368803764 &lt;= u0 &amp; u0 &lt;= 0.014368803764 &amp; -0.014368803764 &lt;= u1 &amp; u1 &lt;= 0.014368803764 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==5.7602760816e-06*x0 + 28.7831032714*x1 + -32.0966648639 + u0 &amp; x1'==-1.00043718238*x0 + 0.00602532330794*x1 + -0.00645947271752 + u1 &amp; t'==1</flow>
+  <location id="loc17" name="state_34" x="1540" y="150" width="160" height="64">
+    <invariant>-0.547500610352 &lt;= x0 &amp; x0 &lt;= -0.000181436538696 &amp; -0.739655137062 &lt;= x1 &amp; x1 &lt;= -0.541698932648 &amp; -0.00411823365484 &lt;= u0 &amp; u0 &lt;= 0.00411823365484 &amp; -0.00411823365484 &lt;= u1 &amp; u1 &lt;= 0.00411823365484 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-2.01382185992e-06*x0 + 2.48172140486*x1 + 0.313754798144 + u0 &amp; x1'==-0.999976655292*x0 + -0.000525799190495*x1 + -0.000388613707198 + u1 &amp; t'==1</flow>
   </location>
   <location id="loc18" name="End" x="1760" y="150" width="160" height="64">
     <invariant>t &gt;= 1.5</invariant>
@@ -96,9 +96,6 @@
   </transition>
   <transition source="loc3" target="loc18">
     <guard>t &gt;= 1.5</guard>
-  </transition>
-  <transition source="loc4" target="loc9">
-    <guard>-0.546934008598 &lt;= x0 &amp; x0 &lt;= 0.000675439834595 &amp; -1.09986031055 &lt;= x1 &amp; x1 &lt;= -0.541767477989 &amp; t &lt;= 1.5</guard>
   </transition>
   <transition source="loc4" target="loc18">
     <guard>t &gt;= 1.5</guard>
@@ -121,12 +118,6 @@
   <transition source="loc10" target="loc18">
     <guard>t &gt;= 1.5</guard>
   </transition>
-  <transition source="loc11" target="loc9">
-    <guard>-0.546934008598 &lt;= x0 &amp; x0 &lt;= 0.000675439834595 &amp; -1.09986031055 &lt;= x1 &amp; x1 &lt;= -0.541767477989 &amp; t &lt;= 1.5</guard>
-  </transition>
-  <transition source="loc11" target="loc10">
-    <guard>0.000992178916931 &lt;= x0 &amp; x0 &lt;= 0.552727401257 &amp; -1.09995853901 &lt;= x1 &amp; x1 &lt;= -0.542989730835 &amp; t &lt;= 1.5</guard>
-  </transition>
   <transition source="loc11" target="loc18">
     <guard>t &gt;= 1.5</guard>
   </transition>
@@ -142,16 +133,13 @@
   <transition source="loc15" target="loc18">
     <guard>t &gt;= 1.5</guard>
   </transition>
-  <transition source="loc16" target="loc9">
-    <guard>-0.546934008598 &lt;= x0 &amp; x0 &lt;= 0.000675439834595 &amp; -1.09986031055 &lt;= x1 &amp; x1 &lt;= -0.541767477989 &amp; t &lt;= 1.5</guard>
-  </transition>
   <transition source="loc16" target="loc18">
     <guard>t &gt;= 1.5</guard>
   </transition>
   <transition source="loc17" target="loc18">
     <guard>t &gt;= 1.5</guard>
   </transition>
-  <transition source="loc19" target="loc0">
+  <transition source="loc19" target="loc11">
   </transition>
   <initially>
     <constr>0.45 &lt;= x0 &amp; x0 &lt;= 0.5 &amp; 0.86 &lt;= x1 &amp; x1 &lt;= 0.91</constr>

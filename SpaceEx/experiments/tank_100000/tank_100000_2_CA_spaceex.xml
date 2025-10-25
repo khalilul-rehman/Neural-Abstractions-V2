@@ -4,13 +4,13 @@
     <param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
     <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
     <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
-  <location id="loc0" name="state_1" x="0" y="0" width="160" height="64">
-    <invariant>1.81198120117e-05 &lt;= x0 &amp; x0 &lt;= 3.85765361786 &amp; -0.243902072193 &lt;= u0 &amp; u0 &lt;= 0.243902072193 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-0.508074041362*x0 + 1.2518532608 + u0 &amp; t'==1</flow>
+  <location id="loc0" name="state_2" x="0" y="0" width="160" height="64">
+    <invariant>3.86520767212 &lt;= x0 &amp; x0 &lt;= 10.0999441147 &amp; -0.0352583880565 &lt;= u0 &amp; u0 &lt;= 0.0352583880565 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-0.194385662019*x0 + 0.249245408537 + u0 &amp; t'==1</flow>
   </location>
-  <location id="loc1" name="state_2" x="220" y="0" width="160" height="64">
-    <invariant>3.85781097412 &lt;= x0 &amp; x0 &lt;= 10.0999441147 &amp; -0.0354055927396 &lt;= u0 &amp; u0 &lt;= 0.0354055927396 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-0.194471830461*x0 + 0.24995551988 + u0 &amp; t'==1</flow>
+  <location id="loc1" name="state_1" x="220" y="0" width="160" height="64">
+    <invariant>1.81198120117e-05 &lt;= x0 &amp; x0 &lt;= 3.86481428146 &amp; -0.244129299058 &lt;= u0 &amp; u0 &lt;= 0.244129299058 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-0.507601427768*x0 + 1.25162477236 + u0 &amp; t'==1</flow>
   </location>
   <location id="loc2" name="End" x="0" y="150" width="160" height="64">
     <invariant>t &gt;= 1.5</invariant>
@@ -25,7 +25,7 @@
   <transition source="loc1" target="loc2">
     <guard>t &gt;= 1.5</guard>
   </transition>
-  <transition source="loc3" target="loc0">
+  <transition source="loc3" target="loc1">
   </transition>
   <initially>
     <constr>0 &lt;= x0 &amp; x0 &lt;= 0.01</constr>
