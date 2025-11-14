@@ -30,6 +30,8 @@ __pycache__/
 # Ignore log files
 *.log
 
+
+
 # Ignore system files
 .DS_Store
 Thumbs.db
@@ -44,3 +46,9 @@ Thumbs.db
 *.svg
 *.ico
 
+
+
+# Ignore Composer files
+composer.lock
+*.zip
+*.tar.gz
