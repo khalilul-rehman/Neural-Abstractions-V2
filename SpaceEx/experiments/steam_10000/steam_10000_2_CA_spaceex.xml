@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="steam_10000_2_State_CustomAbstraction">
+    <param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="u1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="u2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+  <location id="loc0" name="state_2" x="0" y="0" width="160" height="64">
+    <invariant>-1.09923255444 &lt;= x0 &amp; x0 &lt;= 1.09989988804 &amp; 0.00633001327515 &lt;= x1 &amp; x1 &lt;= 1.09993338585 &amp; -1.0999559164 &lt;= x2 &amp; x2 &lt;= 1.09937644005 &amp; -0.357976935309 &lt;= u0 &amp; u0 &lt;= 0.357976935309 &amp; -0.357976935309 &lt;= u1 &amp; u1 &lt;= 0.357976935309 &amp; -0.357976935309 &lt;= u2 &amp; u2 &lt;= 0.357976935309 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==4.27947979562e-12*x0 + 1.00000000005*x1 + 8.58810403716e-13*x2 + -2.57249964912e-11 + u0 &amp; x1'==-0.57066324838*x0 + -2.99894650722*x1 + 0.00654214292309*x2 + -0.00307576366073 + u1 &amp; x2'==-0.00763753741347*x0 + -0.0156293141637*x1 + -0.00269553488216*x2 + 0.308220066281 + u2 &amp; t'==1</flow>
+  </location>
+  <location id="loc1" name="state_1" x="220" y="0" width="160" height="64">
+    <invariant>-1.09915649891 &lt;= x0 &amp; x0 &lt;= 1.09846794605 &amp; -1.09984862804 &lt;= x1 &amp; x1 &lt;= 0.0062792301178 &amp; -1.0999699831 &lt;= x2 &amp; x2 &lt;= 1.09971010685 &amp; -0.353650921149 &lt;= u0 &amp; u0 &lt;= 0.353650921149 &amp; -0.353650921149 &lt;= u1 &amp; u1 &lt;= 0.353650921149 &amp; -0.353650921149 &lt;= u2 &amp; u2 &lt;= 0.353650921149 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-1.14755871852e-13*x0 + 1*x1 + 5.43364459795e-14*x2 + 4.669577303e-13 + u0 &amp; x1'==-0.564625383573*x0 + -2.99454481544*x1 + -0.00116463933272*x2 + 0.00310746050416 + u1 &amp; x2'==-0.00103720105891*x0 + -0.0146597694791*x1 + 0.000759577093231*x2 + 0.299782432259 + u2 &amp; t'==1</flow>
+  </location>
+  <location id="loc2" name="End" x="0" y="150" width="160" height="64">
+    <invariant>t &gt;= 1.5</invariant>
+    <flow>x0'==0 &amp; x1'==0 &amp; x2'==0 &amp; t'==0</flow>
+  </location>
+  <location id="loc3" name="Init" x="0" y="300" width="160" height="64">
+    <flow>x0'==0 &amp; x1'==0 &amp; x2'==0 &amp; t'==1</flow>
+  </location>
+  <transition source="loc0" target="loc1">
+    <guard>-1.09915649891 &lt;= x0 &amp; x0 &lt;= 1.09846794605 &amp; -1.09984862804 &lt;= x1 &amp; x1 &lt;= 0.0062792301178 &amp; -1.0999699831 &lt;= x2 &amp; x2 &lt;= 1.09971010685 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc0" target="loc2">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc0">
+    <guard>-1.09923255444 &lt;= x0 &amp; x0 &lt;= 1.09989988804 &amp; 0.00633001327515 &lt;= x1 &amp; x1 &lt;= 1.09993338585 &amp; -1.0999559164 &lt;= x2 &amp; x2 &lt;= 1.09937644005 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc2">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc0">
+  </transition>
+  <transition source="loc3" target="loc1">
+  </transition>
+  <initially>
+    <constr>0.7 &lt;= x0 &amp; x0 &lt;= 0.75 &amp; -0.05 &lt;= x1 &amp; x1 &lt;= 0.05 &amp; 0.7 &lt;= x2 &amp; x2 &lt;= 0.75</constr>
+    <loc>loc3</loc>
+  </initially>
+  <forbidden>
+    <constr>0.5 &lt;= x0 &amp; x0 &lt;= 0.6 &amp; -0.4 &lt;= x1 &amp; x1 &lt;= -0.3 &amp; 0.7 &lt;= x2 &amp; x2 &lt;= 0.8</constr>
+  </forbidden>
+  </component>
+</sspaceex>

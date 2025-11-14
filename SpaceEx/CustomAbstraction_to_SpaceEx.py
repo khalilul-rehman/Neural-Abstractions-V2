@@ -572,7 +572,35 @@ def write_spaceex_xml(
             "  </initially>\n"
         )
 
+
+    # --- transitions (between normal states) ---
+    trans = []
+    L = len(states)
+
+    for src_idx, st in enumerate(states):
+        src_loc = id_map[st.state_identifier]  # loc for the source
+
+        for tgt_idx in st.transition_to:
+            # enforce index semantics
+            if not isinstance(tgt_idx, int) or tgt_idx < 0 or tgt_idx >= L:
+                raise IndexError(f"transition_to contains invalid index: {tgt_idx} (state id {st.state_identifier})")
+
+            dst_state = states[tgt_idx]
+            dst_loc = id_map[dst_state.state_identifier]
+
+            # skip self-loops (optional; keep if you don't want them)
+            if src_loc == dst_loc:
+                continue
+
+            guard = build_guard_text(st, dst_state, xvars, bounded_time, T)
+            trans.append(build_transition_xml(src_loc, dst_loc, guard_text=guard))
+
+        # end transition (time bound)
+        if bounded_time and end_id:
+            trans.append(build_transition_xml(src_loc, end_id, guard_text=f"t >= {_fmt(T)}"))
+
     # transitions (between normal states)
+    '''
     trans = []
     for st in states:
         src = id_map[st.state_identifier]
@@ -589,6 +617,9 @@ def write_spaceex_xml(
         if bounded_time and end_id:
             trans.append(build_transition_xml(src, end_id, guard_text=f"t >= {_fmt(T)}"))
 
+    '''
+            
+            
     # transitions from Init -> states whose x-box intersects initial_box
     if initial_box is not None and init_mode == "init_location" and init_loc_id is not None:
         ibox = list(initial_box)  # [(lo,hi or None)]*n

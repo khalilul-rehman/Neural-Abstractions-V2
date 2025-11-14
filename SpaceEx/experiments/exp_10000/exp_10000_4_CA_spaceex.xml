@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="exp_10000_4_State_CustomAbstraction">
+    <param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+    <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="u1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
+  <location id="loc0" name="state_6" x="0" y="0" width="160" height="64">
+    <invariant>-1.09960854053 &lt;= x0 &amp; x0 &lt;= -0.00184869766235 &amp; -0.543254137039 &lt;= x1 &amp; x1 &lt;= 1.09918260574 &amp; -1.12198101826 &lt;= u0 &amp; u0 &lt;= 1.12198101826 &amp; -1.12198101826 &lt;= u1 &amp; u1 &lt;= 1.12198101826 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.000763143240066*x0 + -0.647110380561*x1 + -0.257638231889 + u0 &amp; x1'==-1.00000000004*x0 + -3.87460962385e-12*x1 + -2.03830365784e-11 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc1" name="state_3" x="220" y="0" width="160" height="64">
+    <invariant>0.00272512435913 &lt;= x0 &amp; x0 &lt;= 1.09974789619 &amp; -1.0999366045 &lt;= x1 &amp; x1 &lt;= -0.537292003632 &amp; -0.114611634705 &lt;= u0 &amp; u0 &lt;= 0.114611634705 &amp; -0.114611634705 &lt;= u1 &amp; u1 &lt;= 0.114611634705 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==2.83483800235e-06*x0 + 1.51497138781*x1 + -0.316259565414 + u0 &amp; x1'==-1.00017041797*x0 + -3.95391425082e-05*x1 + -3.42632452897e-05 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc2" name="state_5" x="440" y="0" width="160" height="64">
+    <invariant>-1.09881484509 &lt;= x0 &amp; x0 &lt;= -0.000323414802551 &amp; -1.09996926785 &lt;= x1 &amp; x1 &lt;= -0.543362140656 &amp; -0.113242954992 &lt;= u0 &amp; u0 &lt;= 0.113242954992 &amp; -0.113242954992 &lt;= u1 &amp; u1 &lt;= 0.113242954992 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-9.58135655495e-07*x0 + 1.50450638885*x1 + -0.326359531268 + u0 &amp; x1'==-1.00004600827*x0 + 2.16020348341e-07*x1 + -1.93005439728e-05 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc3" name="state_4" x="660" y="0" width="160" height="64">
+    <invariant>0.000548958778381 &lt;= x0 &amp; x0 &lt;= 1.09987854958 &amp; -0.536727905273 &lt;= x1 &amp; x1 &lt;= 1.09945178032 &amp; -1.12161390635 &lt;= u0 &amp; u0 &lt;= 1.12161390635 &amp; -1.12161390635 &lt;= u1 &amp; u1 &lt;= 1.12161390635 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.000188489115127*x0 + -0.660039239315*x1 + -0.247015117699 + u0 &amp; x1'==-1.0000000004*x0 + -3.6017092249e-11*x1 + 2.43044725844e-10 + u1 &amp; t'==1</flow>
+  </location>
+  <location id="loc4" name="End" x="0" y="150" width="160" height="64">
+    <invariant>t &gt;= 1.5</invariant>
+    <flow>x0'==0 &amp; x1'==0 &amp; t'==0</flow>
+  </location>
+  <location id="loc5" name="Init" x="0" y="300" width="160" height="64">
+    <flow>x0'==0 &amp; x1'==0 &amp; t'==1</flow>
+  </location>
+  <transition source="loc0" target="loc1">
+    <guard>0.00272512435913 &lt;= x0 &amp; x0 &lt;= 1.09974789619 &amp; -1.0999366045 &lt;= x1 &amp; x1 &lt;= -0.537292003632 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc0" target="loc2">
+    <guard>-1.09881484509 &lt;= x0 &amp; x0 &lt;= -0.000323414802551 &amp; -1.09996926785 &lt;= x1 &amp; x1 &lt;= -0.543362140656 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc0" target="loc3">
+    <guard>0.000548958778381 &lt;= x0 &amp; x0 &lt;= 1.09987854958 &amp; -0.536727905273 &lt;= x1 &amp; x1 &lt;= 1.09945178032 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc0" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc1" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc2" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc0">
+    <guard>-1.09960854053 &lt;= x0 &amp; x0 &lt;= -0.00184869766235 &amp; -0.543254137039 &lt;= x1 &amp; x1 &lt;= 1.09918260574 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc1">
+    <guard>0.00272512435913 &lt;= x0 &amp; x0 &lt;= 1.09974789619 &amp; -1.0999366045 &lt;= x1 &amp; x1 &lt;= -0.537292003632 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc2">
+    <guard>-1.09881484509 &lt;= x0 &amp; x0 &lt;= -0.000323414802551 &amp; -1.09996926785 &lt;= x1 &amp; x1 &lt;= -0.543362140656 &amp; t &lt;= 1.5</guard>
+  </transition>
+  <transition source="loc3" target="loc4">
+    <guard>t &gt;= 1.5</guard>
+  </transition>
+  <transition source="loc5" target="loc3">
+  </transition>
+  <initially>
+    <constr>0.45 &lt;= x0 &amp; x0 &lt;= 0.5 &amp; 0.86 &lt;= x1 &amp; x1 &lt;= 0.91</constr>
+    <loc>loc5</loc>
+  </initially>
+  <forbidden>
+    <constr>0.3 &lt;= x0 &amp; x0 &lt;= 0.4 &amp; 0.5 &lt;= x1 &amp; x1 &lt;= 0.6</constr>
+  </forbidden>
+  </component>
+</sspaceex>
