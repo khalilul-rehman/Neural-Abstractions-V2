@@ -490,7 +490,8 @@ def write_spaceex_xml(
     initial_box: Optional[List[Tuple[Optional[float], Optional[float]]]] = None,   # [(lo,hi or None)]*n
     unsafe_box: Optional[List[Tuple[Optional[float], Optional[float]]]] = None,
     add_label_param: bool = False,
-    init_mode: str = "init_location"        # "init_location" (NA-like) | "global_initially"
+    init_mode: str = "init_location",        # "init_location" (NA-like) | "global_initially"
+    include_intermediate_transitions: bool = False  # NEW: whether to include transitions between intermediate states
 ):
     if not states:
         raise ValueError("No states provided")
@@ -579,21 +580,22 @@ def write_spaceex_xml(
 
     for src_idx, st in enumerate(states):
         src_loc = id_map[st.state_identifier]  # loc for the source
+        # intermediate transitions (optional)
+        if include_intermediate_transitions:
+            for tgt_idx in st.transition_to:
+                # enforce index semantics
+                if not isinstance(tgt_idx, int) or tgt_idx < 0 or tgt_idx >= L:
+                    raise IndexError(f"transition_to contains invalid index: {tgt_idx} (state id {st.state_identifier})")
 
-        for tgt_idx in st.transition_to:
-            # enforce index semantics
-            if not isinstance(tgt_idx, int) or tgt_idx < 0 or tgt_idx >= L:
-                raise IndexError(f"transition_to contains invalid index: {tgt_idx} (state id {st.state_identifier})")
+                dst_state = states[tgt_idx]
+                dst_loc = id_map[dst_state.state_identifier]
 
-            dst_state = states[tgt_idx]
-            dst_loc = id_map[dst_state.state_identifier]
+                # skip self-loops (optional; keep if you don't want them)
+                if src_loc == dst_loc:
+                    continue
 
-            # skip self-loops (optional; keep if you don't want them)
-            if src_loc == dst_loc:
-                continue
-
-            guard = build_guard_text(st, dst_state, xvars, bounded_time, T)
-            trans.append(build_transition_xml(src_loc, dst_loc, guard_text=guard))
+                guard = build_guard_text(st, dst_state, xvars, bounded_time, T)
+                trans.append(build_transition_xml(src_loc, dst_loc, guard_text=guard))
 
         # end transition (time bound)
         if bounded_time and end_id:
@@ -745,6 +747,8 @@ def export_spaceex(
     unsafe_box: Optional[List[Tuple[Optional[float], Optional[float]]]] = None,
     init_mode: str = "init_location",  # "init_location" (NA-like) or "global_initially"
     # global_initially -- use it when you are 100% known that initial_box is within one state's bounds
+    include_intermediate_transitions: bool = False,
+     # NEW: whether to include transitions between intermediate states
     cfg_scenario: str = "phaver",
     cfg_directions: str = "oct",
     cfg_sampling_time: float = 0.01,
@@ -761,7 +765,8 @@ def export_spaceex(
         initial_box=initial_box,
         unsafe_box=unsafe_box,
         add_label_param=False,
-        init_mode=init_mode
+        init_mode=init_mode,
+        include_intermediate_transitions=include_intermediate_transitions
     )
     # CFG
     n = states[0].M.shape[0]
