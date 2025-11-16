@@ -6,13 +6,13 @@
     <param name="u0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
     <param name="u1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false"/>
     <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true"/>
-  <location id="loc0" name="state_2" x="0" y="0" width="160" height="64">
-    <invariant>0.0926297903061 &lt;= x0 &amp; x0 &lt;= 1.09978890419 &amp; -1.09983885288 &lt;= x1 &amp; x1 &lt;= 1.09897315502 &amp; -0.304390559993 &lt;= u0 &amp; u0 &lt;= 0.304390559993 &amp; -0.304390559993 &lt;= u1 &amp; u1 &lt;= 0.304390559993 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==-2.44853951919*x0 + -1.00000716525*x1 + 0.417915585728 + u0 &amp; x1'==2.99999996532*x0 + -1.00000002495*x1 + 1.39036747259e-08 + u1 &amp; t'==1</flow>
+  <location id="loc0" name="state_1" x="0" y="0" width="160" height="64">
+    <invariant>-1.0997055769 &lt;= x0 &amp; x0 &lt;= 0.0831124782562 &amp; -1.09990489483 &lt;= x1 &amp; x1 &lt;= 1.09906101227 &amp; -0.133594494152 &lt;= u0 &amp; u0 &lt;= 0.133594494152 &amp; -0.133594494152 &lt;= u1 &amp; u1 &lt;= 0.133594494152 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==0.962527840579*x0 + -0.999994098385*x1 + -0.0566134472188 + u0 &amp; x1'==3.00000006802*x0 + -1.00000002454*x1 + 2.13512489209e-08 + u1 &amp; t'==1</flow>
   </location>
-  <location id="loc1" name="state_1" x="220" y="0" width="160" height="64">
-    <invariant>-1.0997055769 &lt;= x0 &amp; x0 &lt;= 0.0921210050583 &amp; -1.09990489483 &lt;= x1 &amp; x1 &lt;= 1.09933936596 &amp; -0.136929263268 &lt;= u0 &amp; u0 &lt;= 0.136929263268 &amp; -0.136929263268 &lt;= u1 &amp; u1 &lt;= 0.136929263268 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
-    <flow>x0'==0.953260719502*x0 + -0.999969758743*x1 + -0.0636172183635 + u0 &amp; x1'==3.00000001635*x0 + -1.00000000964*x1 + 1.85322358921e-09 + u1 &amp; t'==1</flow>
+  <location id="loc1" name="state_2" x="220" y="0" width="160" height="64">
+    <invariant>0.0833483934402 &lt;= x0 &amp; x0 &lt;= 1.09993994236 &amp; -1.09983885288 &lt;= x1 &amp; x1 &lt;= 1.09925091267 &amp; -0.309142318237 &lt;= u0 &amp; u0 &lt;= 0.309142318237 &amp; -0.309142318237 &lt;= u1 &amp; u1 &lt;= 0.309142318237 &amp; 0 &lt;= t &amp; t &lt;= 1.5</invariant>
+    <flow>x0'==-2.42909393126*x0 + -0.999977696224*x1 + 0.40111293235 + u0 &amp; x1'==2.99999999676*x0 + -1.00000003146*x1 + -7.4558309638e-09 + u1 &amp; t'==1</flow>
   </location>
   <location id="loc2" name="End" x="0" y="150" width="160" height="64">
     <invariant>t &gt;= 1.5</invariant>
@@ -27,7 +27,7 @@
   <transition source="loc1" target="loc2">
     <guard>t &gt;= 1.5</guard>
   </transition>
-  <transition source="loc3" target="loc0">
+  <transition source="loc3" target="loc1">
   </transition>
   <initially>
     <constr>0.45 &lt;= x0 &amp; x0 &lt;= 0.5 &amp; -0.6 &lt;= x1 &amp; x1 &lt;= -0.55</constr>

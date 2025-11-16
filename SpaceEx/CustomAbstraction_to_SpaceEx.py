@@ -577,6 +577,7 @@ def write_spaceex_xml(
     # --- transitions (between normal states) ---
     trans = []
     L = len(states)
+    label = "tau" if add_label_param else None
 
     for src_idx, st in enumerate(states):
         src_loc = id_map[st.state_identifier]  # loc for the source
@@ -595,11 +596,11 @@ def write_spaceex_xml(
                     continue
 
                 guard = build_guard_text(st, dst_state, xvars, bounded_time, T)
-                trans.append(build_transition_xml(src_loc, dst_loc, guard_text=guard))
+                trans.append(build_transition_xml(src_loc, dst_loc, guard_text=guard, label=label))
 
         # end transition (time bound)
         if bounded_time and end_id:
-            trans.append(build_transition_xml(src_loc, end_id, guard_text=f"t >= {_fmt(T)}"))
+            trans.append(build_transition_xml(src_loc, end_id, guard_text=f"t >= {_fmt(T)}", label=label))
 
     # transitions (between normal states)
     '''
@@ -629,7 +630,7 @@ def write_spaceex_xml(
             # compare in the shared dimensionality only
             sb = [st.bounds[i] if i in st.bounds else (None, None) for i in range(len(ibox))]
             if _boxes_intersect(sb, ibox):
-                trans.append(build_transition_xml(init_loc_id, id_map[st.state_identifier], guard_text=None))
+                trans.append(build_transition_xml(init_loc_id, id_map[st.state_identifier], guard_text=None, label=label))
 
     # Optional: global <initially> without Init location
     if initial_box is not None and init_mode == "global_initially":
