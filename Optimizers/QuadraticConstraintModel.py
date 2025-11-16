@@ -11,6 +11,7 @@ from gurobipy import GRB
 from CustomAbstraction.CustomAbstractionHelper import StateModel
 
 from Helping_Code.HelpingFunctions import get_leaf_samples
+from Helping_Code.HelpingFunctions import normalized_root_mean_square_error
 
 from Helping_Code.CustomHyperrectangle import vertices_from_bounds_dict
 
@@ -404,3 +405,40 @@ def predict_by_bounds(new_X: np.ndarray, states: List[StateModel]) -> np.ndarray
     
 #     return elevated_vertices
             
+def counts_of_daviation_in_testing(new_X: np.ndarray, new_y: np.ndarray, states: List[StateModel]) -> np.ndarray:
+    """
+    Predict y for new_X using the list of StateModel objects.
+    Each StateModel must have M and m0 and h defined.
+
+    Args:
+        new_X: (N, m) testing input matrix
+        new_X: (N, m) testing output matrix
+        states: list of StateModel with M, m0 set
+    Returns:
+        n_daviation: (counts) predictions which daviate more than h
+    """
+
+    if new_X.ndim != 2:
+        raise ValueError("new_X must be 2D (N, m).")
+    
+    # figure out output dim p from any state that has a model
+    st0 = next((s for s in states if s.M is not None and s.m0 is not None and s.h is not None), None)
+    if st0 is None:
+        raise ValueError("No StateModel has M and m0 set.")
+    p = st0.m0.shape[0]
+    m = st0.M.shape[1]
+    if new_X.shape[1] != m:
+        raise ValueError(f"new_X has {new_X.shape[1]} features but M expects {m}.")
+    daviation_counts = 0
+    for i, x in enumerate(new_X):
+        chosen = None
+        for st in states:
+            if st.M is None or st.m0 is None:
+                continue
+            if _contains(x, st.bounds):
+                chosen = st
+                break
+        if chosen is not None:
+            if normalized_root_mean_square_error ( new_y[i, :],  x @ chosen.M.T + chosen.m0) < chosen.h:
+                daviation_counts += 1
+    return daviation_counts 
