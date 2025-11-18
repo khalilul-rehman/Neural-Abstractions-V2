@@ -439,6 +439,7 @@ def counts_of_daviation_in_testing(new_X: np.ndarray, new_y: np.ndarray, states:
                 chosen = st
                 break
         if chosen is not None:
-            if np.linalg.norm(x @ chosen.M.T + chosen.m0 - new_y[i]) > error_bound:
+            if np.linalg.norm(x @ chosen.M.T + chosen.m0 - new_y[i]) > chosen.h:
+                print(f"Sample {i} daviates more than h: Predicted = {x @ chosen.M.T + chosen.m0}, Actual = {new_y[i]}, Error_ditance = {np.linalg.norm(x @ chosen.M.T + chosen.m0 - new_y[i])}, h = {chosen.h}")
                 daviation_counts += 1
     return daviation_counts 
