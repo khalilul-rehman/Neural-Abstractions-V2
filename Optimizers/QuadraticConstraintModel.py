@@ -11,7 +11,7 @@ from gurobipy import GRB
 from CustomAbstraction.CustomAbstractionHelper import StateModel
 
 from Helping_Code.HelpingFunctions import get_leaf_samples
-from Helping_Code.HelpingFunctions import normalized_root_mean_square_error
+#from Helping_Code.HelpingFunctions import normalized_root_mean_square_error
 
 from Helping_Code.CustomHyperrectangle import vertices_from_bounds_dict
 
@@ -405,7 +405,7 @@ def predict_by_bounds(new_X: np.ndarray, states: List[StateModel]) -> np.ndarray
     
 #     return elevated_vertices
             
-def counts_of_daviation_in_testing(new_X: np.ndarray, new_y: np.ndarray, states: List[StateModel]) -> np.ndarray:
+def counts_of_daviation_in_testing(new_X: np.ndarray, new_y: np.ndarray, states: List[StateModel], error_bound: float = 0.001) -> np.ndarray:
     """
     Predict y for new_X using the list of StateModel objects.
     Each StateModel must have M and m0 and h defined.
@@ -439,6 +439,6 @@ def counts_of_daviation_in_testing(new_X: np.ndarray, new_y: np.ndarray, states:
                 chosen = st
                 break
         if chosen is not None:
-            if normalized_root_mean_square_error ( new_y[i, :],  x @ chosen.M.T + chosen.m0) < chosen.h:
+            if np.linalg.norm(x @ chosen.M.T + chosen.m0 - new_y[i]) > error_bound:
                 daviation_counts += 1
     return daviation_counts 
